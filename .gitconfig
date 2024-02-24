@@ -1,0 +1,6 @@
+[user]
+  name = Alex Reyes
+  email = alex@alexreyes.com
+
+[includeIf "gitdir:~/Documents/3.LogicMonitor/"]
+  path = ~/Documents/3.LogicMonitor/.gitconfig-logicmonitor
