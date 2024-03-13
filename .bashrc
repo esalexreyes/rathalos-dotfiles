@@ -19,3 +19,6 @@ export PATH=$BUN_INSTALL/bin:$PATH
 
 # zoxide
 eval "$(zoxide init --cmd cd bash)"
+
+# Starship Prompt
+eval "$(starship init bash)"
