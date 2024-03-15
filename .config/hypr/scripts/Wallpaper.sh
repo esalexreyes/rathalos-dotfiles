@@ -13,7 +13,7 @@ change_swaybg(){
 change_swww(){
   pkill swaybg
   swww query || swww init
-  swww img ${RANDOMPICS} --transition-step 90 --transition-fps 30 --transition-type any --transition-duration 3
+  swww img --resize fit ${RANDOMPICS} --transition-step 90 --transition-fps 30 --transition-type any --transition-duration 3
 }
 
 change_current(){

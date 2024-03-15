@@ -4,3 +4,5 @@
 
 [includeIf "gitdir:~/Documents/3.LogicMonitor/"]
   path = ~/Documents/3.LogicMonitor/.gitconfig-logicmonitor
+[pull]
+	rebase = false

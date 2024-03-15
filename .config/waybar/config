@@ -1,0 +1,260 @@
+{
+  "layer": "top", // Waybar at top layer
+  "position": "top", // Waybar position (top|bottom|left|right)
+  //"gtk-layer-shell": "false",
+  "height": 46, // Waybar height (to be removed for auto height)
+  // "width": 2560, // Waybar width
+  "spacing": 0, // Gaps between modules (0px) Adjusted in the css
+  "margin-top": 0,
+  //"margin-bottom":-10,
+  "margin-left": 10,
+  "margin-right": 10,
+  // Choose the order of the modules
+  "modules-left": [
+    "custom/launcher",
+    "custom/updates",
+    "cpu",
+    "custom/gpu",
+    "memory",
+    "temperature",
+    "disk#root",
+    "disk#home",
+    "network"
+  ],
+  "modules-center": [
+    "hyprland/workspaces",
+    "hyprland/window"
+    // "hyprland/language"
+  ],
+  "modules-right": [
+    // "custom/hyprshade",
+    "pulseaudio",
+    "backlight",
+    // "battery",
+    "upower",
+    "custom/notifications",
+    "tray",
+    "clock",
+    "custom/weather",
+    // "custom/cycle_wall",
+    // "custom/clipboard",
+    "custom/power",
+    "cava"
+    // "custom/custom"
+  ],
+  "custom/launcher": {
+    "format": "{}",
+    "tooltip": true,
+    "exec": "echo '{\"text\":\"💧\",\"tooltip\":\"Drun | Run\"}'",
+    "return-type": "json",
+    "on-click": "~/.config/hypr/scripts/rofilaunch.sh d",
+    "on-click-right": "~/.config/hypr/scripts/rofilaunch.sh w"
+  },
+  "custom/updates": {
+    // "format": "📦 {}",
+    "interval": 7200, // every two hours
+    "format": "󱧘 {}",
+    //"exec": "i=$(checkupdates); echo \"$i\" |wc -l; echo \"$i\" |column -t |tr '\n' '\r'",       // # of updates and tooltip details
+    "exec": "~/.config/waybar/scripts/arch_updates.sh",
+    // "on-click": "kitty --class wm-floating --title all_is_kitty --hold --detach sh -c 'sudo pacman -Syu'",
+    "on-click": "alacritty -e bash -c 'sudo pacman -Syu; bash'",
+    "tooltip": true
+  },
+  "cpu": {
+    "interval": 1,
+    // "format": "󰍛 {usage}%",
+    // "format-alt": "{icon0}{icon1}{icon2}{icon3}",
+    // "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    // "tooltip": true,
+    "format": "󰌢 {load}",
+    "tooltip": false,
+    "on-click": "missioncenter",
+    "on-click-right": "alacritty --class wm-floating --title all_is_kitty --hold --detach sh -c 'btop'"
+  },
+  "custom/gpu": {
+    "interval": 1,
+    "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
+    "format": "󰢮 {}%",
+    "return-type": "",
+    "on-click": "missioncenter",
+    "on-click-right": "kitty --class wm-floating --title all_is_kitty --hold --detach sh -c 'nvidia-smi'"
+  },
+  "memory": {
+    "interval": 2,
+    "format": "󰾅 {used}GB",
+    // "format-alt": "󰾆 {percentage}%",
+    "max-length": 30,
+    "tooltip": true,
+    "tooltip-format": " {used:0.1f}GB/{total:0.1f}GB",
+    "on-click": "missioncenter",
+    "on-click-right": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'"
+  },
+  "temperature": {
+    "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    "interval": 2,
+    "format": "{temperatureC}°C ",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "disk#root": {
+    // "format": " {percentage_used}% ({free})",
+    // "format": "💿 {free}",
+    "format": "Root  {free}",
+    "format-alt": " {percentage_used}% ({free})",
+    "tooltip": true,
+    // "on-click-right": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'",
+    "interval": 10
+  },
+  "disk#home": {
+    // "format": " {percentage_used}% ({free})",
+    // "format": "💿 {free}",
+    "format": "Home  {free}",
+    "format-alt": " {percentage_used}% ({free})",
+    "tooltip": true,
+    "path": "/home",
+    // "on-click-right": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'",
+    "interval": 10
+  },
+  "network": {
+    // "format": "↕️{bandwidthTotalBytes}",
+    "format": "󰹹{bandwidthTotalBytes}",
+    "format-disconnected": "No Internet⚡",
+    "format-linked": "{ifname} (No IP) ‼️",
+    // "format-alt": "⬆️ {bandwidthUpBytes} | ⬇️ {bandwidthDownBytes}",
+    "format-alt": " {bandwidthUpBytes} |  {bandwidthDownBytes}",
+    // "format-wifi": "{essid}({signalStrength}%) 🛜",
+    "format-wifi": "{essid}({signalStrength}%) 󰖩 ",
+    "format-ethernet": "🌐 {ipaddr}/{cidr} ",
+    // "tooltip-format-wifi": "🛜 {essid}({signalStrength}%)",
+    "tooltip-format-wifi": "󰖩  {essid}({signalStrength}%)",
+    "tooltip-format-ethernet": "🌐 {ipaddr}/{cidr}",
+    // "tooltip-format-disconnected": "‼️ Disconnected",
+    "tooltip-format-disconnected": "󰖪 ",
+    "on-click-right": "nm-connection-editor",
+    "interval": 2
+  },
+  "hyprland/workspaces": {
+    "disable-scroll": false,
+    "on-scroll-up": "hyprctl dispatch workspace -1",
+    "on-scroll-down": "hyprctl dispatch workspace +1",
+    "format": "{name}", // {icon}
+    // "on-click": "activate",
+    "format-icons": {
+      "urgent": "󰗖",
+      "active": "󰝥",
+      "default": "󰝦"
+    },
+    "sort-by-number": true
+  },
+  "hyprland/window": {
+    "format": "  {}",
+    "separate-outputs": true,
+    "max-length": 32,
+    "rewrite": {
+      "(.*)fish": "> [$1]",
+      "(.*)neovide": "neovide 󰕷 ", // doesn't seem to work
+      "(.*)Mozilla Firefox": "Firefox 󰈹",
+      "(.*)BlueMail": "BlueMail 󰊫 ",
+      "(.*)Visual Studio Code": "Code 󰨞",
+      "(.*)Dolphin": "$1 󰉋",
+      "(.*)Spotify": "Spotify 󰓇",
+      "(.*)Steam": "Steam 󰓓"
+    }
+  },
+  "persistent-workspaces": {
+    "*": 5 // 5 workspaces by default on every monitor
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}",
+    "format-bluetooth": "{icon}  {volume}%",
+    "format-bluetooth-muted": "󰝟 {icon}",
+    "format-muted": "婢 {volume}",
+    "tooltip-format": "{icon} {desc} // {volume}%",
+    "scroll-step": 5,
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "on-click": "pavucontrol"
+    // "on-click-right": "blueman-manager"
+  },
+  "custom/notifications": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": " <span foreground='red'><sup></sup></span>",
+      // "notification": "🔔 <span foreground='red'><sup></sup></span>",
+      // "none": "🔔",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": ""
+      // "dnd-notification": "🔕 <span foreground='red'><sup></sup></span>"
+      // "dnd-none": "🔕"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "sleep 0.1 && swaync-client -t -sw",
+    "on-click-right": "sleep 0.1 && swaync-client -d -sw",
+    "escape": true
+  },
+  "tray": {
+    "icon-size": 15,
+    "spacing": 15
+  },
+  "clock": {
+    "format": "󰥔 {:%H:%M 󰃭 %d %b %Y}",
+    "timezone": "America/Mexico_City",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "on-click-right": "mode",
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+  "custom/weather": {
+    "format": "{}",
+    "on-click": "wpaperd",
+    "tooltip": true,
+    "restart-interval": 300,
+    "exec": "$HOME/.config/waybar/scripts/waybar-wttr.py",
+    "return-type": "json"
+  },
+  "custom/power": {
+    "format": "{}",
+    // "exec": "~/.config/waybar/scripts/expand.sh power",
+    "exec": "echo '{\"text\":\"⏻\",\"tooltip\":\"Power\"}'",
+    "return-type": "json",
+    "on-click": "~/.config/wlogout/launch.sh"
+  }
+}
