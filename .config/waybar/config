@@ -1,17 +1,14 @@
 {
   "layer": "top", // Waybar at top layer
   "position": "top", // Waybar position (top|bottom|left|right)
-  //"gtk-layer-shell": "false",
   "height": 46, // Waybar height (to be removed for auto height)
-  // "width": 2560, // Waybar width
   "spacing": 0, // Gaps between modules (0px) Adjusted in the css
   "margin-top": 0,
-  //"margin-bottom":-10,
   "margin-left": 10,
   "margin-right": 10,
   // Choose the order of the modules
   "modules-left": [
-    "custom/launcher",
+    // "custom/launcher",
     "custom/updates",
     "cpu",
     "custom/gpu",
@@ -51,12 +48,9 @@
     "on-click-right": "~/.config/hypr/scripts/rofilaunch.sh w"
   },
   "custom/updates": {
-    // "format": "📦 {}",
-    "interval": 7200, // every two hours
     "format": "󱧘 {}",
-    //"exec": "i=$(checkupdates); echo \"$i\" |wc -l; echo \"$i\" |column -t |tr '\n' '\r'",       // # of updates and tooltip details
+    "interval": 7200, // every two hours
     "exec": "~/.config/waybar/scripts/arch_updates.sh",
-    // "on-click": "kitty --class wm-floating --title all_is_kitty --hold --detach sh -c 'sudo pacman -Syu'",
     "on-click": "alacritty -e bash -c 'sudo pacman -Syu; bash'",
     "tooltip": true
   },
@@ -102,22 +96,16 @@
     ]
   },
   "disk#root": {
-    // "format": " {percentage_used}% ({free})",
-    // "format": "💿 {free}",
     "format": "Root  {free}",
     "format-alt": " {percentage_used}% ({free})",
     "tooltip": true,
-    // "on-click-right": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'",
     "interval": 10
   },
   "disk#home": {
-    // "format": " {percentage_used}% ({free})",
-    // "format": "💿 {free}",
     "format": "Home  {free}",
     "format-alt": " {percentage_used}% ({free})",
     "tooltip": true,
     "path": "/home",
-    // "on-click-right": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'",
     "interval": 10
   },
   "network": {
@@ -173,7 +161,7 @@
     "format": "{icon} {volume}",
     "format-bluetooth": "{icon}  {volume}%",
     "format-bluetooth-muted": "󰝟 {icon}",
-    "format-muted": "婢 {volume}",
+    "format-muted": "󰝟 {volume}",
     "tooltip-format": "{icon} {desc} // {volume}%",
     "scroll-step": 5,
     "format-icons": {
@@ -197,13 +185,9 @@
     "format": "{icon}",
     "format-icons": {
       "notification": " <span foreground='red'><sup></sup></span>",
-      // "notification": "🔔 <span foreground='red'><sup></sup></span>",
-      // "none": "🔔",
       "none": "",
       "dnd-notification": "<span foreground='red'><sup></sup></span>",
       "dnd-none": ""
-      // "dnd-notification": "🔕 <span foreground='red'><sup></sup></span>"
-      // "dnd-none": "🔕"
     },
     "return-type": "json",
     "exec-if": "which swaync-client",
