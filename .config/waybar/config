@@ -236,9 +236,8 @@
   },
   "custom/power": {
     "format": "{}",
-    // "exec": "~/.config/waybar/scripts/expand.sh power",
     "exec": "echo '{\"text\":\"⏻\",\"tooltip\":\"Power\"}'",
     "return-type": "json",
-    "on-click": "~/.config/wlogout/launch.sh"
+    "on-click": "~/.config/wleave/launch.sh"
   }
 }
