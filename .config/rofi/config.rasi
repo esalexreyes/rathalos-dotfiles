@@ -1,19 +1,13 @@
 // Config //
 configuration {
-    modi:                        "window,drun,filebrowser,window,run";
+    modi:                        "drun";
     show-icons:                  true;
     display-drun:                "";
-    display-run:                 "";
-    display-filebrowser:         "";
-    display-window:              "";
     drun-display-format:         "{name}";
     window-format:               "{w}{t}";
-    font:                        "JetBrainsMono Nerd Font 10";
+    font:                        "CaskaydiaCove Nerd Font 12";
     icon-theme:                  "Tela-circle-dracula";
 }
-
-@theme "~/.config/rofi/themes/theme.rasi"
-
 
 // Main //
 window {
@@ -25,10 +19,10 @@ window {
     cursor:                      "default";
     spacing:                     0px;
     padding:                     0px;
-    border:                      2px;
-    border-radius:               4px;
-    border-color:                @main-br;
-    background-color:            transparent;
+    border:                      1px;
+    border-radius:               8px;
+    border-color:                #b4befe;
+    background-color:            #1e1e2ecc;
 }
 mainbox {
     enabled:                     true;
@@ -37,7 +31,6 @@ mainbox {
     orientation:                 vertical;
     children:                    [ "inputbar" , "listbox" ];
     background-color:            transparent;
-    background-image:            url("~/.config/swww/wall.blur", height);
 }
 
 
@@ -47,16 +40,15 @@ inputbar {
     spacing:                     0px;
     padding:                     20px;
     children:                    [ "entry" ];
-    background-color:            @main-bg;
-    background-image:            url("~/.config/swww/wall.rofi", width);
+    background-color:            transparent;
 }
 entry {
     border-radius:               4px;
     enabled:                     true;
     spacing:                     0px;
     padding:                     20px;
-    text-color:                  @main-fg;
-    background-color:            @main-bg;
+    text-color:                  #cdd6f4;
+    background-color:            #313244;
 }
 
 
@@ -65,8 +57,8 @@ listbox {
     padding:                     0px 20px;
     spacing:                     0px;
     orientation:                 vertical;
-    children:                    [ "listview" , "mode-switcher" ];
-    background-color:            @main-bg;
+    children:                    [ "listview" ];
+    background-color:            transparent;
 }
 listview {
     padding:                     0px;
@@ -82,7 +74,7 @@ listview {
     fixed-columns:               true;
     cursor:                      "default";
     background-color:            transparent;
-    text-color:                  @main-fg;
+    text-color:                  #cdd6f4;
 }
 mode-switcher {
     orientation:                 horizontal;
@@ -95,13 +87,13 @@ mode-switcher {
 button {
     cursor:                      pointer;
     border-radius:               4px;
-    background-color:            @main-bg;
+    background-color:            #313244;
     padding:                     15px;
-    text-color:                  @main-fg;
+    text-color:                  #cdd6f4;
 }
 button selected {
-    background-color:            @main-fg;
-    text-color:                  @main-bg;
+    background-color:            #313244;
+    text-color:                  #cdd6f4;
 }
 
 
@@ -112,17 +104,23 @@ element {
     padding:                     5px;
     border-radius:               4px;
     cursor:                      pointer;
-    background-color:            transparent;
-    text-color:                  @main-fg;
+    background-color:            #45475a;
+    text-color:                  #cdd6f4;
 }
 @media(max-aspect-ratio: 1.8) {
     element {
         orientation:             vertical;
     }
 }
+
+element normal.normal, element alternate.normal {
+    background-color:            #45475a;
+    text-color:                  #cdd6f4;
+}
+
 element selected.normal {
-    background-color:            @select-bg;
-    text-color:                  @select-fg;
+    background-color:            #cba6f7;
+    text-color:                  #11111b;
 }
 element-icon {
     size:                        32px;

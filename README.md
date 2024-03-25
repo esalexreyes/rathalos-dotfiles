@@ -1,6 +1,5 @@
 # Things that I'm missing
 
-- Configure Rofi
-- Configure SawyNC
+- Basic Rofi done, but I can do so much more with it.
 - Configure Hypridle
 - Configure Hyprlock
