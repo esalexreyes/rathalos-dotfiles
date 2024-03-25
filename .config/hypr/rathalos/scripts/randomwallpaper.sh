@@ -15,6 +15,7 @@ fi
 export SWWW_TRANSITION_FPS=60
 export SWWW_TRANSITION_STEP=90
 export SWWW_TRANSITION_TYPE=any
+export SWWW_TRANSITION_DURATION=3
 
 # This controls (in seconds) when to switch to the next image
 INTERVAL=900
