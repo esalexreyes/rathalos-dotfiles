@@ -1,50 +1,78 @@
-[colors.bright]
-black = "0xa6accd"
-blue = "0xadd7ff"
-cyan = "0x89ddff"
-green = "0x5de4c7"
-magenta = "0xfae4fc"
-red = "0xd0679d"
-white = "0xffffff"
-yellow = "0xfffac2"
+[colors.primary]
+background = "#1E1E2E"
+foreground = "#CDD6F4"
+dim_foreground = "#CDD6F4"
+bright_foreground = "#CDD6F4"
 
 [colors.cursor]
-cursor = "CellForeground"
-text = "CellBackground"
-
-[colors.normal]
-black = "0x1b1e28"
-blue = "0x89ddff"
-cyan = "0xadd7ff"
-green = "0x5de4c7"
-magenta = "0xfcc5e9"
-red = "0xd0679d"
-white = "0xffffff"
-yellow = "0xfffac2"
-
-[colors.primary]
-background = "0x1b1e28"
-foreground = "0xa6accd"
-
-[colors.search.focused_match]
-background = "0xadd7ff"
-foreground = "0x1b1e28"
-
-[colors.search.matches]
-background = "0xadd7ff"
-foreground = "0x1b1e28"
-
-[colors.selection]
-background = "0x303340"
-text = "CellForeground"
+text = "#1E1E2E"
+cursor = "#F5E0DC"
 
 [colors.vi_mode_cursor]
-cursor = "CellForeground"
-text = "CellBackground"
+text = "#1E1E2E"
+cursor = "#B4BEFE"
+
+[colors.search.matches]
+foreground = "#1E1E2E"
+background = "#A6ADC8"
+
+[colors.search.focused_match]
+foreground = "#1E1E2E"
+background = "#A6E3A1"
 
 [colors.footer_bar]
-background = "0xadd7ff"
-foreground = "0x1b1e28"
+foreground = "#1E1E2E"
+background = "#A6ADC8"
+
+[colors.hints.start]
+foreground = "#1E1E2E"
+background = "#F9E2AF"
+
+[colors.hints.end]
+foreground = "#1E1E2E"
+background = "#A6ADC8"
+
+[colors.selection]
+text = "#1E1E2E"
+background = "#F5E0DC"
+
+[colors.normal]
+black = "#45475A"
+red = "#F38BA8"
+green = "#A6E3A1"
+yellow = "#F9E2AF"
+blue = "#89B4FA"
+magenta = "#F5C2E7"
+cyan = "#94E2D5"
+white = "#BAC2DE"
+
+[colors.bright]
+black = "#585B70"
+red = "#F38BA8"
+green = "#A6E3A1"
+yellow = "#F9E2AF"
+blue = "#89B4FA"
+magenta = "#F5C2E7"
+cyan = "#94E2D5"
+white = "#A6ADC8"
+
+[colors.dim]
+black = "#45475A"
+red = "#F38BA8"
+green = "#A6E3A1"
+yellow = "#F9E2AF"
+blue = "#89B4FA"
+magenta = "#F5C2E7"
+cyan = "#94E2D5"
+white = "#BAC2DE"
+
+[[colors.indexed_colors]]
+index = 16
+color = "#FAB387"
+
+[[colors.indexed_colors]]
+index = 17
+color = "#F5E0DC"
 
 [[keyboard.bindings]]
 action = "SpawnNewInstance"
