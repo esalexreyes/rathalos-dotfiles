@@ -20,5 +20,8 @@ export PATH=$BUN_INSTALL/bin:$PATH
 # zoxide
 eval "$(zoxide init --cmd cd bash)"
 
+# tmuxifier
+export PATH="$HOME/.tmuxifier/bin:$PATH"
+
 # Starship Prompt
 eval "$(starship init bash)"
