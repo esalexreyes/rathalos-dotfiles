@@ -22,6 +22,7 @@ eval "$(zoxide init --cmd cd bash)"
 
 # tmuxifier
 export PATH="$HOME/.tmuxifier/bin:$PATH"
+eval "$(tmuxifier init -)"
 
 # Starship Prompt
 eval "$(starship init bash)"
