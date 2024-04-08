@@ -24,5 +24,8 @@ eval "$(zoxide init --cmd cd bash)"
 export PATH="$HOME/.tmuxifier/bin:$PATH"
 eval "$(tmuxifier init -)"
 
+# Default Editor
+export EDITOR=nvim
+
 # Starship Prompt
 eval "$(starship init bash)"
