@@ -50,6 +50,8 @@ return {
 				"black", -- python formatter
 				"pylint",
 				"eslint_d",
+				"phpstan",
+				"php-debug-adapter",
 			},
 		})
 	end,
