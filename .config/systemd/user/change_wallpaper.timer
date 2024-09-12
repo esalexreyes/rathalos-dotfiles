@@ -2,7 +2,9 @@
 Description=Timer to change wallpapers every 15 minutes
 
 [Timer]
-OnBootSec=15min
+OnBootSec=1min
+OnUnitActiveSec=900
+Persistent=true
 
 [Install]
 WantedBy=timers.target

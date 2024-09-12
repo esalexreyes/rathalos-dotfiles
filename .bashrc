@@ -29,3 +29,6 @@ export EDITOR=nvim
 
 # Starship Prompt
 eval "$(starship init bash)"
+
+# Lando
+export PATH="/home/alexreyes/.lando/bin${PATH+:$PATH}"; #landopath

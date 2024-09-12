@@ -86,6 +86,24 @@ return {
 					capabilities = capabilities,
 				})
 			end,
+			["lemminx"] = function()
+				-- configure lemminx language server
+				lspconfig["lemminx"].setup({
+					capabilities = capabilities,
+					filetypes = { "xml", "xsd", "xsl", "xslt", "svg", "dita", "ditamap" },
+					settings = {
+						xml = {
+							validation = {
+								resolveExternalEntities = true,
+							},
+							catalogs = {
+								"/etc/xml/catalog",
+								"/home/alexreyes/.dita/plugins/org.oasis-open.dita.v1_2/catalog.xml",
+							},
+						},
+					},
+				})
+			end,
 			["svelte"] = function()
 				-- configure svelte server
 				lspconfig["svelte"].setup({

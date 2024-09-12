@@ -11,4 +11,7 @@ alias ll='eza -al --group-directories-first'
 alias ls='eza -alF --color=always --sort=size | grep -v /'
 alias lt='eza -al --sort=modified'
 
+# dita-ot
+alias dita='/home/alexreyes/.dita/bin/dita'
+
 # Custom functions
